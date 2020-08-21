@@ -324,7 +324,7 @@ npm i less-loader less --save-dev
 }
 ```
 
-至此一个简单的vue脚手架就搭建好啦，后续可以添加更多的功能。
+至此一个简单的vue脚手架就搭建好啦，如果你想更完善一点，后续可以添加更多的功能。
 
 ### 支持typescript
 
@@ -336,5 +336,170 @@ typescript是[JavaScript](https://baike.baidu.com/item/JavaScript)的一个超�
 npm install typescript ts-loader --save-dev
 ```
 
-将入口文件index.js改成index.ts
+将入口文件文件名index.js改成index.ts
 
+修改webpack配置
+
+```javascript
+...
+// 入口文件地址改一下
+entry: path.join(__dirname, "src/index.ts"),
+...
+
+// 加入对ts文件的处理规则
+...
+{
+  test: /\.tsx?$/,
+  loader: 'ts-loader',
+  exclude: /node_modules/,
+  options: {
+  	appendTsSuffixTo: [/\.vue$/]
+  }
+}
+...
+```
+
+创建typescript配置文件，tsconfig.json，这里的配置可以根据实际要求进行配置
+
+```json
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+```
+
+添加对vue的声明，在src目录下创建文件`shims-vue.d.ts`
+
+```typescript
+declare module "*.vue" {
+  import Vue from "vue"
+  export default Vue
+}
+```
+
+需要注意的是如果在Vue原型当中添加了属性，也需要添加对应的声明，但是由于vue-router和vuex这种是作为Vue插件来使用的 (也就是按`Vue.use(Router)`这种方式来使用)，并且都已经支持TypeScript，所以并不需要单独来编写声明了。但是像axios这种并不是按Vue插件使用，需要用下面的方式添加到Vue原型当中
+
+```javascript
+Vue.prototype.$http = axios
+```
+
+那么使用了TypeScript之后，就需要对该属性进行声明
+否则ts编译的过程就会认为该属性不存在
+
+在src目录下创建`index.d.ts`
+
+```typescript
+import { AxiosInstance } from 'axios'
+
+declare module 'vue/types/vue' {
+  interface Vue {
+    $http: AxiosInstance
+  }
+}
+```
+
+### vue-class-component和vue-property-decorator
+
+[vue-class-component](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fvue-class-component%5D(https%3A%2F%2Fgithub.com%2Fvuejs%2Fvue-class-component)) 是官方推出的vue对typescript支持的装饰器(库)，可以将Vue中的组件用类的方式编写，**vue-property-decorator**是[vue-class-component](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fvuejs%2Fvue-class-component%5D(https%3A%2F%2Fgithub.com%2Fvuejs%2Fvue-class-component)) 的超集，下面我们来学习一下**vue-property-decorator**。
+
+安装依赖包
+
+```shell
+npm install vue-property-decorator vue-class-component --save
+```
+
+组件就可以这么写了
+
+```typescript
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+@Component({
+  filters: {
+    toFixed: (num: number, fix: number = 2) => {
+      return num.toFixed(fix)
+    }
+  }
+})
+export default class MyComponent extends Vue {
+  public list: number[] = [0, 1, 2, 3, 4]
+  get evenList() {
+    return this.list.filter((item: number) => item % 2 === 0)
+  }
+}
+</script>
+```
+
+### 集成eslint	
+
+安装
+
+```shell
+npm install --save-dev eslint-loader eslint
+```
+
+在 `webpack.config.js` 中添加如下代码：
+
+```css
+{
+    test: /\.js$/,
+    loader: 'eslint-loader',
+    enforce: "pre",
+    include: [path.resolve(__dirname, 'src')], // 指定检查的目录
+    options: { // 这里的配置项参数将会被传递到 eslint 的 CLIEngine 
+        formatter: require('eslint-friendly-formatter') // 指定错误报告的格式规范
+    }
+}
+```
+
+最后，项目想要使用那些eslin规则，可以创建一个配置项文件 '.eslintrc.js'，代码如下:
+
+```java
+module.exports = {
+    root: true, 
+    parserOptions: {
+        sourceType: 'module'
+    },
+    env: {
+        browser: true,
+    },
+    rules: {
+        "indent": ["error", 2],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+        "no-console": "error",
+        "arrow-parens": 0
+    }
+}
+```
