@@ -25,3 +25,13 @@ test('city database has San Juan', () => {
   expect(isCity('San Juan')).toBeTruthy();
 });
 ```
+
+`beforeEach` 和 `afterEach` 能够通过与[ 异步代码测试](https://jestjs.io/docs/zh-Hans/asynchronous) 相同的方式处理异步代码 — — 他们可以采取 `done` 参数或返回一个 promise。 例如，如果 `initializeCityDatabase()` 返回解决数据库初始化时的 promise ，我们会想返回这一 promise︰
+
+```js
+beforeEach(() => {
+  return initializeCityDatabase();
+});
+```
+
+`beforeEach` 会根据test测试用例的数量遍历循环，如果只想执行一次的话，可以用`beforeAll` 和 `afterAll` 处理这种情况
