@@ -279,15 +279,12 @@ sequelize.sync();
 
 该方法的本质其实就是自动找出`models`目录下，所有以`js`结尾的文件，引入并执行`sync()`方法。命令行执行`node db/sync.js`后，效果如下图：
 
-![img](https:////upload-images.jianshu.io/upload_images/128602-851cf5db1033aaf6.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp)
+![](media/15983618377928.jpg)
 
-sync
 
 再查看数据库情况，可以发现`models`目录下的所有模型全部创建成功。
 
-![img](https:////upload-images.jianshu.io/upload_images/128602-e9e1864418da4266.png?imageMogr2/auto-orient/strip|imageView2/2/w/420/format/webp)
-
-image.png
+![](media/15983618726291.jpg)
 
 #### 3. 数据表关系结构
 

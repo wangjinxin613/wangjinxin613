@@ -190,8 +190,29 @@ test('compiling android goes as expected', () => {
   ```
   npm test --coverage
   ```
+![](media/15983636140540.jpg)
 
-  ![img](https:////upload-images.jianshu.io/upload_images/8143044-48ac5f9cdeeb3e99.png?imageMogr2/auto-orient/strip|imageView2/2/w/887/format/webp)
+
 
   
 
+# Jest 单元测试术语解析：describe、it、expect、test
+
+##### `jest`测试代码片段
+
+```javascript
+describe("number test", ()=>{
+	it('1 is true', ()=>{
+		expect(1).toBeTruthy()
+	})
+	test('2 is true',()=>{
+		expect(2).toBeTruthy()
+	})
+})
+12345678
+```
+
+- **describe** 描述, `decribe`会形成一个作用域
+- **it** 断言
+- **expect** 期望
+- **test** 测试，类似`it`
