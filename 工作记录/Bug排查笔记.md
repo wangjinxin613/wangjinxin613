@@ -44,3 +44,6 @@ if (
 
 已定为具体位置，难点是如何判断是否是分包，或者找到 options.base 源头位置看是否可以更好判断是否是分包
 
+##### 问题3: 百度小程序 web-view 组件无法触发 message 事件（https://github.com/dcloudio/uni-app/issues/4681）
+
+##### 问题4: 抖音小程序created前就加载了组件，导致组件数据可能不对（https://ask.dcloud.net.cn/question/189702?item_id=270366&rf=false）
