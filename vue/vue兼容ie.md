@@ -1,3 +1,9 @@
+---
+title: vue兼容ie
+date: 2024-05-05 14:52:32
+tags:
+	- vue
+---
 # vue兼容ie浏览器
 
 ### [babel-polyfill](https://www.cnblogs.com/princesong/p/6728250.html)

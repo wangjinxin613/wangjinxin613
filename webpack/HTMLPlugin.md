@@ -1,3 +1,9 @@
+---
+title: HTMLPlugin
+date: 2024-05-05 14:52:32
+tags:
+	- webpack
+---
 ### HtmlWebpackPlugin
 
 这个plugin曝光率很高，他主要有两个作用

@@ -1,3 +1,9 @@
+---
+title: webpack-dev-server
+date: 2024-05-05 14:52:32
+tags:
+	- webpack
+---
 # devServer
 
 devServer是用来提高开发效率的，不是用devServer来做打包的，它提供了一些配置项，可以用于改变devServer的默认行为，要配置devServer，除了可以在配置文件里通过devServer传入参数，还可以通过命令行传入参数。

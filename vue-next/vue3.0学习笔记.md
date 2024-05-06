@@ -1,3 +1,9 @@
+---
+title: vue3.0学习笔记
+date: 2024-05-05 14:52:32
+tags:
+	- vue-next
+---
 ## 一个新的全局 API：`createApp`
 
 调用 `createApp` 返回一个应用实例，这是 Vue 3 中的新概念：

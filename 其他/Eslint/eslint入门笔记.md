@@ -1,3 +1,9 @@
+---
+title: eslint入门笔记
+date: 2024-05-05 14:52:32
+tags:
+	- Eslint
+---
 # Eslint 是什么
 
 ## 编码规范

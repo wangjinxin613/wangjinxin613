@@ -1,3 +1,9 @@
+---
+title: child_process子进程
+date: 2024-05-05 14:52:32
+tags:
+	- nodejs
+---
 # child_process 子进程
 
 在node中，child_process这个模块非常重要。掌握了它，等于在node的世界开启了一扇新的大门。熟悉shell脚本的同学，可以用它来完成很多有意思的事情，比如文件压缩、增量部署等，nodejs创建子进程有四种方法,分别是spawn、fork、exec、execFile。

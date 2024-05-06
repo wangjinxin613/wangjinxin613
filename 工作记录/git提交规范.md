@@ -1,3 +1,9 @@
+---
+title: git提交规范
+date: 2024-05-05 14:52:32
+tags:
+	- 工作记录
+---
 1. **feat**：新增功能（feature）。
 2. **fix**：修复 bug。
 3. **docs**：仅修改文档（documentation）。

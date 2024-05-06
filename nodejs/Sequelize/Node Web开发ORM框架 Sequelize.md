@@ -1,3 +1,9 @@
+---
+title: Node Web开发ORM框架 Sequelize
+date: 2024-05-05 14:52:32
+tags:
+	- Sequelize
+---
 # Node Web开发ORM框架 Sequelize
 
 ### 一、什么是 ORM？

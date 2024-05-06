@@ -1,3 +1,9 @@
+---
+title: webpack-dashboard
+date: 2024-05-05 14:52:32
+tags:
+	- webpack
+---
 ## webpack-dashboard
 
 webpack-dashboard是用于改善开发人员使用[webpack](https://link.jianshu.com?t=http%3A%2F%2Fwebpack.github.io%2F)时控制台用户体验的一款工具。它摒弃了webpack（尤其是使用dev server时）在命令行内诸多杂乱的信息结构，为webpack在命令行上构建了一个一目了然的仪表盘(dashboard)，其中包括**构建过程**和**状态**、**日志**以及涉及的**模块列表**。有了它，你就可以更加优雅的使用webpack来构建你的代码。

@@ -1,3 +1,9 @@
+---
+title: vue-property-decorator使用手册
+date: 2024-05-05 14:52:32
+tags:
+	- vue
+---
 ## 一，安装
 
 ```shell

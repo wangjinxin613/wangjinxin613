@@ -1,3 +1,9 @@
+---
+title: react的context
+date: 2024-05-05 14:52:32
+tags:
+	- react
+---
 # React的context
 
 Context 意为上下文，提供了一个无需为每层组件手动添加 props，就能在组件树间进行数据传递的方法。

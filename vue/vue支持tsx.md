@@ -1,3 +1,9 @@
+---
+title: vue支持tsx
+date: 2024-05-05 14:52:32
+tags:
+	- vue
+---
 使用vuecl3创建的项目，集成tsx
 
 ```

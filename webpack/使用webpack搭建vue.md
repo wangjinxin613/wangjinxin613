@@ -1,3 +1,9 @@
+---
+title: 使用webpack搭建vue
+date: 2024-05-05 14:52:32
+tags:
+	- webpack
+---
 ### 生成package.json
 
 ```shell

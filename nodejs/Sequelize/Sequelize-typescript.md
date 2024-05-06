@@ -1,3 +1,9 @@
+---
+title: Sequelize-typescript
+date: 2024-05-05 14:52:32
+tags:
+	- Sequelize
+---
 ### 定义一个模型
 
 ```javascript

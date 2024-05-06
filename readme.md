@@ -1,3 +1,9 @@
+---
+title: readme
+date: 2024-05-05 14:52:32
+tags:
+	- _posts
+---
 <h2 align="center">👋 你好，我是王金鑫</h2>
 <p align="center">
   <a href="https://github.com/wangjinxin613"><img src="https://img.shields.io/badge/GitHub-24292e" alt="github"></a>

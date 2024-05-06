@@ -1,3 +1,9 @@
+---
+title: 阅读vue源码前的准备工作
+date: 2024-05-05 14:52:32
+tags:
+	- vue
+---
 # 认识Flow
 
 Flow是facebook出品的javascript静态类型检查工具，vue源码中使用了Flow。
